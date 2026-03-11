@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Concise TypeScript Book - The Concise TypeScript Book</title>
+    <title>Triple-Slash Directives - The Concise TypeScript Book</title>
     <link rel="stylesheet" href="site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,13 +80,24 @@
 </ul>
 </nav>
         <main class="content">
-            <h1 id="the-concise-typescript-book">The Concise TypeScript Book</h1>
-<p>The Concise TypeScript Book provides a comprehensive and succinct overview of TypeScript's capabilities. It offers clear explanations covering all aspects found in the latest version of the language, from its powerful type system to advanced features. Whether you're a beginner or an experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.</p>
-<p>This book is completely Free and Open Source.</p>
-<p>I believe that high-quality technical education should be accessible to everyone, which is why I keep this book free and open.</p>
-<p>If the book helped you squash a bug, understand a tricky concept, or advance in your career, please consider supporting my work by paying what you want (suggested price: 15 USD) or sponsoring a coffee. Your support helps me keep the content up to date and expand it with new examples and deeper explanations.</p>
-<p><a href="https://www.buymeacoffee.com/simonepoggiali"><img alt="Buy Me a Coffee" src="https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&amp;logo=buy-me-a-coffee&amp;logoColor=black" /></a></p>
-<p><a href="https://www.paypal.com/donate/?business=QW82ZS956XLFY&amp;no_recurring=0&amp;currency_code=EUR"><img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-green.svg" /></a></p>
+            <h2 id="triple-slash-directives">Triple-Slash Directives</h2>
+<p>Triple-slash directives are special comments that provide instructions to the compiler about how to process a file. These directives begin with three consecutive slashes (<code>///</code>) and are typically placed at the top of a TypeScript file and have no effects on the runtime behavior.</p>
+<p>Triple-slash directives are used to reference external dependencies, specify module loading behavior, enable/disable certain compiler features, and more. Few examples:</p>
+<p>Referencing a declaration file:</p>
+<!-- skip -->
+
+<pre><code class="language-typescript">/// &lt;reference path=&quot;path/to/declaration/file.d.ts&quot; /&gt;
+</code></pre>
+<p>Indicate the module format:</p>
+<!-- skip -->
+
+<pre><code class="language-typescript">/// &lt;amd|commonjs|system|umd|es6|es2015|none&gt;
+</code></pre>
+<p>Enable compiler options, in the following example strict mode:</p>
+<!-- skip -->
+
+<pre><code class="language-typescript">/// &lt;strict|noImplicitAny|noUnusedLocals|noUnusedParameters&gt;
+</code></pre>
         </main>
     </div>
 </body>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Concise TypeScript Book - The Concise TypeScript Book</title>
+    <title>Generics - The Concise TypeScript Book</title>
     <link rel="stylesheet" href="site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,13 +80,82 @@
 </ul>
 </nav>
         <main class="content">
-            <h1 id="the-concise-typescript-book">The Concise TypeScript Book</h1>
-<p>The Concise TypeScript Book provides a comprehensive and succinct overview of TypeScript's capabilities. It offers clear explanations covering all aspects found in the latest version of the language, from its powerful type system to advanced features. Whether you're a beginner or an experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.</p>
-<p>This book is completely Free and Open Source.</p>
-<p>I believe that high-quality technical education should be accessible to everyone, which is why I keep this book free and open.</p>
-<p>If the book helped you squash a bug, understand a tricky concept, or advance in your career, please consider supporting my work by paying what you want (suggested price: 15 USD) or sponsoring a coffee. Your support helps me keep the content up to date and expand it with new examples and deeper explanations.</p>
-<p><a href="https://www.buymeacoffee.com/simonepoggiali"><img alt="Buy Me a Coffee" src="https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&amp;logo=buy-me-a-coffee&amp;logoColor=black" /></a></p>
-<p><a href="https://www.paypal.com/donate/?business=QW82ZS956XLFY&amp;no_recurring=0&amp;currency_code=EUR"><img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-green.svg" /></a></p>
+            <h2 id="generics">Generics</h2>
+<p>Generics allow you to create reusable components and functions that can work with multiple types. With generics, you can parameterize types, functions, and interfaces, allowing them to operate on different types without explicitly specifying them beforehand.</p>
+<p>Generics allow you to make code more flexible and reusable.</p>
+<h3 id="generic-type">Generic Type</h3>
+<p>To define a generic type, you use angle brackets (<code>&lt;&gt;</code>) to specify the type parameters, for instance:</p>
+<pre><code class="language-typescript">function identity&lt;T&gt;(arg: T): T {
+    return arg;
+}
+const a = identity('x');
+const b = identity(123);
+
+const getLen = &lt;T,&gt;(data: ReadonlyArray&lt;T&gt;) =&gt; data.length;
+const len = getLen([1, 2, 3]);
+</code></pre>
+<h3 id="generic-classes">Generic Classes</h3>
+<p>Generics can be applied also to classes, in this way they can work with multiple types by using type parameters. This is useful to create reusable class definitions that can operate on different data types while maintaining type safety.</p>
+<pre><code class="language-typescript">class Container&lt;T&gt; {
+    private item: T;
+
+    constructor(item: T) {
+        this.item = item;
+    }
+
+    getItem(): T {
+        return this.item;
+    }
+}
+
+const numberContainer = new Container&lt;number&gt;(123);
+console.log(numberContainer.getItem()); // 123
+
+const stringContainer = new Container&lt;string&gt;('hello');
+console.log(stringContainer.getItem()); // hello
+</code></pre>
+<h3 id="generic-constraints">Generic Constraints</h3>
+<p>Generic parameters can be constrained using the <code>extends</code> keyword followed by a type or interface that the type parameter must satisfy.</p>
+<p>In the following example T it is must containing a properly <code>length</code> in order to be valid:</p>
+<!-- skip -->
+
+<pre><code class="language-typescript">const printLen = &lt;T extends { length: number }&gt;(value: T): void =&gt; {
+    console.log(value.length);
+};
+
+printLen('Hello'); // 5
+printLen([1, 2, 3]); // 3
+printLen({ length: 10 }); // 10
+printLen(123); // Invalid
+</code></pre>
+<p>An interesting feature of generic introduced in version 3.4 RC is Higher order function type inference which introduced  propagated generic type arguments:</p>
+<pre><code class="language-typescript">declare function pipe&lt;A extends any[], B, C&gt;(
+    ab: (...args: A) =&gt; B,
+    bc: (b: B) =&gt; C
+): (...args: A) =&gt; C;
+
+declare function list&lt;T&gt;(a: T): T[];
+declare function box&lt;V&gt;(x: V): { value: V };
+
+const listBox = pipe(list, box); // &lt;T&gt;(a: T) =&gt; { value: T[] }
+const boxList = pipe(box, list); // &lt;V&gt;(x: V) =&gt; { value: V }[]
+</code></pre>
+<p>This functionality allows more easily typed safe pointfree style programming which is common in functional programming.</p>
+<h3 id="generic-contextual-narrowing">Generic contextual narrowing</h3>
+<p>Contextual narrowing for generics is the mechanism in TypeScript that allows the compiler to narrow down the type of a generic parameter based on the context in which it is used, it is useful when working with generic types in conditional statements:</p>
+<pre><code class="language-typescript">function process&lt;T&gt;(value: T): void {
+    if (typeof value === 'string') {
+        // Value is narrowed down to type 'string'
+        console.log(value.length);
+    } else if (typeof value === 'number') {
+        // Value is narrowed down to type 'number'
+        console.log(value.toFixed(2));
+    }
+}
+
+process('hello'); // 5
+process(3.14159); // 3.14
+</code></pre>
         </main>
     </div>
 </body>

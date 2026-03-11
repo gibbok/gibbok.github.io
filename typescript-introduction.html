@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeScript Introduction - The Concise TypeScript Book</title>
+    <link rel="stylesheet" href="site.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" id="silktide-consent-manager-css" href="cookie-banner/silktide-consent-manager.css">
+    <script src="cookie-banner/silktide-consent-manager.js"></script>
+    <script src="cookie-banner/cookie-config.js"></script>
+</head>
+<body>
+    <div class="layout">
+        <nav class='sidebar'>
+<ul>
+<li class='level-1'><a href='index.html'>The Concise TypeScript Book</a></li>
+<li class='level-2'><a href='translations.html'>Translations</a></li>
+<li class='level-2'><a href='downloads-and-website.html'>Downloads and website</a></li>
+<li class='level-2'><a href='table-of-contents.html'>Table of Contents</a></li>
+<li class='level-2'><a href='introduction.html'>Introduction</a></li>
+<li class='level-2'><a href='about-the-author.html'>About the Author</a></li>
+<li class='level-2'><a href='typescript-introduction.html'>TypeScript Introduction</a></li>
+<li class='level-2'><a href='getting-started-with-typescript.html'>Getting Started With TypeScript</a></li>
+<li class='level-2'><a href='exploring-the-type-system.html'>Exploring the Type System</a></li>
+<li class='level-2'><a href='primitive-types.html'>Primitive Types</a></li>
+<li class='level-2'><a href='type-annotations.html'>Type Annotations</a></li>
+<li class='level-2'><a href='optional-properties.html'>Optional Properties</a></li>
+<li class='level-2'><a href='readonly-properties.html'>Readonly Properties</a></li>
+<li class='level-2'><a href='index-signatures.html'>Index Signatures</a></li>
+<li class='level-2'><a href='extending-types.html'>Extending Types</a></li>
+<li class='level-2'><a href='literal-types.html'>Literal Types</a></li>
+<li class='level-2'><a href='literal-inference.html'>Literal Inference</a></li>
+<li class='level-2'><a href='strictnullchecks.html'>strictNullChecks</a></li>
+<li class='level-2'><a href='enums.html'>Enums</a></li>
+<li class='level-2'><a href='narrowing.html'>Narrowing</a></li>
+<li class='level-2'><a href='assignments.html'>Assignments</a></li>
+<li class='level-2'><a href='control-flow-analysis.html'>Control Flow Analysis</a></li>
+<li class='level-2'><a href='type-predicates.html'>Type Predicates</a></li>
+<li class='level-2'><a href='discriminated-unions.html'>Discriminated Unions</a></li>
+<li class='level-2'><a href='the-never-type.html'>The never Type</a></li>
+<li class='level-2'><a href='exhaustiveness-checking.html'>Exhaustiveness checking</a></li>
+<li class='level-2'><a href='object-types.html'>Object Types</a></li>
+<li class='level-2'><a href='tuple-type-anonymous.html'>Tuple Type (Anonymous)</a></li>
+<li class='level-2'><a href='named-tuple-type-labeled.html'>Named Tuple Type (Labeled)</a></li>
+<li class='level-2'><a href='fixed-length-tuple.html'>Fixed Length Tuple</a></li>
+<li class='level-2'><a href='union-type.html'>Union Type</a></li>
+<li class='level-2'><a href='intersection-types.html'>Intersection Types</a></li>
+<li class='level-2'><a href='type-indexing.html'>Type Indexing</a></li>
+<li class='level-2'><a href='type-from-value.html'>Type from Value</a></li>
+<li class='level-2'><a href='type-from-func-return.html'>Type from Func Return</a></li>
+<li class='level-2'><a href='type-from-module.html'>Type from Module</a></li>
+<li class='level-2'><a href='mapped-types.html'>Mapped Types</a></li>
+<li class='level-2'><a href='mapped-type-modifiers.html'>Mapped Type Modifiers</a></li>
+<li class='level-2'><a href='conditional-types.html'>Conditional Types</a></li>
+<li class='level-2'><a href='distributive-conditional-types.html'>Distributive Conditional Types</a></li>
+<li class='level-2'><a href='infer-type-inference-in-conditional-types.html'>infer Type Inference in Conditional Types</a></li>
+<li class='level-2'><a href='predefined-conditional-types.html'>Predefined Conditional Types</a></li>
+<li class='level-2'><a href='template-union-types.html'>Template Union Types</a></li>
+<li class='level-2'><a href='any-type.html'>Any type</a></li>
+<li class='level-2'><a href='unknown-type.html'>Unknown type</a></li>
+<li class='level-2'><a href='void-type.html'>Void type</a></li>
+<li class='level-2'><a href='never-type.html'>Never type</a></li>
+<li class='level-2'><a href='interface-and-type.html'>Interface and Type</a></li>
+<li class='level-2'><a href='built-in-type-primitives.html'>Built-in Type Primitives</a></li>
+<li class='level-2'><a href='common-built-in-js-objects.html'>Common Built-in JS Objects</a></li>
+<li class='level-2'><a href='overloads.html'>Overloads</a></li>
+<li class='level-2'><a href='merging-and-extension.html'>Merging and Extension</a></li>
+<li class='level-2'><a href='differences-between-type-and-interface.html'>Differences between Type and Interface</a></li>
+<li class='level-2'><a href='class.html'>Class</a></li>
+<li class='level-2'><a href='generics.html'>Generics</a></li>
+<li class='level-2'><a href='erased-structural-types.html'>Erased Structural Types</a></li>
+<li class='level-2'><a href='namespacing.html'>Namespacing</a></li>
+<li class='level-2'><a href='symbols.html'>Symbols</a></li>
+<li class='level-2'><a href='triple-slash-directives.html'>Triple-Slash Directives</a></li>
+<li class='level-2'><a href='type-manipulation.html'>Type Manipulation</a></li>
+<li class='level-2'><a href='others.html'>Others</a></li>
+</ul>
+</nav>
+        <main class="content">
+            <h2 id="typescript-introduction">TypeScript Introduction</h2>
+<h3 id="what-is-typescript">What is TypeScript?</h3>
+<p>TypeScript is a strongly typed programming language that builds on JavaScript. It was originally designed by Anders Hejlsberg in 2012 and is currently developed and maintained by Microsoft as an open source project.</p>
+<p>TypeScript compiles to JavaScript and can be executed in any JavaScript runtime (e.g., a browser or Node.js on a server).</p>
+<p>It supports multiple programming paradigms such as functional, generic, imperative, and object-oriented programming, and is a compiled (transpiled) language that is converted into JavaScript before execution.</p>
+<h3 id="why-typescript">Why TypeScript?</h3>
+<p>TypeScript is a strongly typed language that helps prevent common programming mistakes and avoid certain kinds of run-time errors before the program is executed.</p>
+<p>A strongly typed language allows the developer to specify various program constraints and behaviors in the data type definitions, facilitating the ability to verify the correctness of the software and prevent defects. This is especially valuable in large-scale applications.</p>
+<p>Some of the benefits of TypeScript:</p>
+<ul>
+<li>Static typing, optionally strongly typed</li>
+<li>Type Inference</li>
+<li>Access to ES6 and ES7 features</li>
+<li>Cross-Platform and Cross-browser Compatibility</li>
+<li>Tooling support with IntelliSense</li>
+</ul>
+<h3 id="typescript-and-javascript">TypeScript and JavaScript</h3>
+<p>TypeScript is written in <code>.ts</code> or <code>.tsx</code> files, while JavaScript files are written in <code>.js</code> or <code>.jsx</code>.</p>
+<p>Files with the extension <code>.tsx</code> or <code>.jsx</code> can contain JavaScript Syntax Extension JSX, which is used in React for UI development.</p>
+<p>TypeScript is a typed superset of JavaScript (ECMAScript 2015) in terms of syntax. All JavaScript code is valid TypeScript code, but the reverse is not always true.</p>
+<p>For instance, consider a function in a JavaScript file with the <code>.js</code> extension, such as the following:</p>
+<!-- skip -->
+
+<pre><code class="language-typescript">const sum = (a, b) =&gt; a + b;
+</code></pre>
+<p>The function can be converted and used in TypeScript by changing the file extension to <code>.ts</code>. However, if the same function is annotated with TypeScript types, it cannot be executed in any JavaScript runtime without compilation. The following TypeScript code will produce a syntax error if it is not compiled:</p>
+<!-- skip -->
+
+<pre><code class="language-typescript">const sum = (a: number, b: number): number =&gt; a + b;
+</code></pre>
+<p>TypeScript was designed to detect possible exceptions that can occur at runtime during compilation time by having the developer define the intent with type annotations. In addition, TypeScript can also catch issues if no type annotation is provided. For instance, the following code snippet does not specify any TypeScript types:</p>
+<!-- skip -->
+
+<pre><code class="language-typescript">const items = [{ x: 1 }, { x: 2 }];
+const result = items.filter(item =&gt; item.y);
+</code></pre>
+<p>In this case, TypeScript detects an error and reports:</p>
+<pre><code class="language-text">Property 'y' does not exist on type '{ x: number; }'.
+</code></pre>
+<p>TypeScript's type system is largely influenced by the runtime behavior of JavaScript. For example, the addition operator (+), which in JavaScript can either perform string concatenation or numeric addition, is modeled in the same way in TypeScript:</p>
+<pre><code class="language-typescript">const result = '1' + 1; // Result is of type string
+</code></pre>
+<p>The team behind TypeScript has made a deliberate decision to flag unusual usage of JavaScript as errors. For instance, consider the following valid JavaScript code:</p>
+<!-- skip -->
+
+<pre><code class="language-typescript">const result = 1 + true; // In JavaScript, the result is equal 2
+</code></pre>
+<p>However, TypeScript throws an error:</p>
+<pre><code class="language-text">Operator '+' cannot be applied to types 'number' and 'boolean'.
+</code></pre>
+<p>This error occurs because TypeScript strictly enforces type compatibility, and in this case, it identifies an invalid operation between a number and a boolean.</p>
+<h3 id="typescript-code-generation">TypeScript Code Generation</h3>
+<p>The TypeScript compiler has two main responsibilities: checking for type errors and compiling to JavaScript. These two processes are independent of each other. Types do not affect the execution of the code in a JavaScript runtime, as they are completely erased during compilation. TypeScript can still output JavaScript even in the presence of type errors.
+Here is an example of TypeScript code with a type error:</p>
+<!-- skip -->
+
+<pre><code class="language-typescript">const add = (a: number, b: number): number =&gt; a + b;
+const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+</code></pre>
+<p>However, it can still produce executable JavaScript output:</p>
+<!-- skip -->
+
+<pre><code class="language-typescript">'use strict';
+const add = (a, b) =&gt; a + b;
+const result = add('x', 'y'); // xy
+</code></pre>
+<p>It is not possible to check TypeScript types at runtime. For example:</p>
+<!-- skip -->
+
+<pre><code class="language-typescript">interface Animal {
+    name: string;
+}
+interface Dog extends Animal {
+    bark: () =&gt; void;
+}
+interface Cat extends Animal {
+    meow: () =&gt; void;
+}
+const makeNoise = (animal: Animal) =&gt; {
+    if (animal instanceof Dog) {
+        // 'Dog' only refers to a type, but is being used as a value here.
+        // ...
+    }
+};
+</code></pre>
+<p>As the types are erased after compilation, there is no way to run this code in JavaScript. To recognize types at runtime, we need to use another mechanism. TypeScript provides several options, with a common one being "tagged union". For example:</p>
+<pre><code class="language-typescript">interface Dog {
+    kind: 'dog'; // Tagged union
+    bark: () =&gt; void;
+}
+interface Cat {
+    kind: 'cat'; // Tagged union
+    meow: () =&gt; void;
+}
+type Animal = Dog | Cat;
+
+const makeNoise = (animal: Animal) =&gt; {
+    if (animal.kind === 'dog') {
+        animal.bark();
+    } else {
+        animal.meow();
+    }
+};
+
+const dog: Dog = {
+    kind: 'dog',
+    bark: () =&gt; console.log('bark'),
+};
+makeNoise(dog);
+</code></pre>
+<p>The property "kind" is a value that can be used at runtime to distinguish between objects in JavaScript.</p>
+<p>It is also possible for a value at runtime to have a type different from the one declared in the type declaration. For instance, if the developer has misinterpreted an API type and annotated it incorrectly.</p>
+<p>TypeScript is a superset of JavaScript, so the "class" keyword can be used as a type and value at runtime.</p>
+<pre><code class="language-typescript">class Animal {
+    constructor(public name: string) {}
+}
+class Dog extends Animal {
+    constructor(
+        public name: string,
+        public bark: () =&gt; void
+    ) {
+        super(name);
+    }
+}
+class Cat extends Animal {
+    constructor(
+        public name: string,
+        public meow: () =&gt; void
+    ) {
+        super(name);
+    }
+}
+type Mammal = Dog | Cat;
+
+const makeNoise = (mammal: Mammal) =&gt; {
+    if (mammal instanceof Dog) {
+        mammal.bark();
+    } else {
+        mammal.meow();
+    }
+};
+
+const dog = new Dog('Fido', () =&gt; console.log('bark'));
+makeNoise(dog);
+</code></pre>
+<p>In JavaScript, a "class" has a "prototype" property, and the "instanceof" operator can be used to test if the prototype property of a constructor appears anywhere in the prototype chain of an object.</p>
+<p>TypeScript has no effect on runtime performance, as all types will be erased. However, TypeScript does introduce some build time overhead.</p>
+<h3 id="modern-javascript-now-downleveling">Modern JavaScript Now (Downleveling)</h3>
+<p>TypeScript can compile code to any released version of JavaScript since ECMAScript 3 (1999). This means that TypeScript can transpile code from the latest JavaScript features to older versions, a process known as Downleveling. This allows the usage of modern JavaScript while maintaining maximum compatibility with older runtime environments.</p>
+<p>It's important to note that during transpilation to an older version of JavaScript, TypeScript may generate code that could incur a performance overhead compared to native implementations.</p>
+<p>Here are some of the modern JavaScript features that can be used in TypeScript:</p>
+<ul>
+<li>ECMAScript modules instead of AMD-style "define" callbacks or CommonJS "require" statements.</li>
+<li>Classes instead of prototypes.</li>
+<li>Variables declaration using "let" or "const" instead of "var".</li>
+<li>"for-of" loop or ".forEach" instead of the traditional "for" loop.</li>
+<li>Arrow functions instead of function expressions.</li>
+<li>Destructuring assignment.</li>
+<li>Shorthand property/method names and computed property names.</li>
+<li>Default function parameters.</li>
+</ul>
+<p>By leveraging these modern JavaScript features, developers can write more expressive and concise code in TypeScript.</p>
+        </main>
+    </div>
+</body>
+</html>
