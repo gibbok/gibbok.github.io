@@ -3,7 +3,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
     showBackground: true
   },
   cookieIcon: {
-    position: "bottomLeft"
+    position: "bottomRight"
   },
   cookieTypes: [
     {
@@ -11,7 +11,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
       name: "Necessary",
       description: "<p>These cookies are necessary for the website to function properly and cannot be switched off. They help with things like logging in and setting your privacy preferences.</p>",
       required: true,
-      onAccept: function() {
+      onAccept: function () {
         console.log('Add logic for the required Necessary here');
       }
     },
@@ -20,7 +20,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
       name: "Analytics",
       description: "<p>These cookies help us improve the site by tracking which pages are most popular and how visitors move around the site.</p>",
       defaultValue: true,
-      onAccept: function() {
+      onAccept: function () {
         gtag('consent', 'update', {
           analytics_storage: 'granted',
         });
@@ -28,7 +28,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
           'event': 'consent_accepted_analytics',
         });
       },
-      onReject: function() {
+      onReject: function () {
         gtag('consent', 'update', {
           analytics_storage: 'denied',
         });
@@ -38,7 +38,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
       id: "advertising",
       name: "Advertising",
       description: "<p>These cookies provide extra features and personalization to improve your experience. They may be set by us or by partners whose services we use.</p>",
-      onAccept: function() {
+      onAccept: function () {
         gtag('consent', 'update', {
           ad_storage: 'granted',
           ad_user_data: 'granted',
@@ -48,7 +48,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
           'event': 'consent_accepted_advertising',
         });
       },
-      onReject: function() {
+      onReject: function () {
         gtag('consent', 'update', {
           ad_storage: 'denied',
           ad_user_data: 'denied',
