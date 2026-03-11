@@ -1,6 +1,6 @@
 silktideCookieBannerManager.updateCookieBannerConfig({
   background: {
-    showBackground: true
+    showBackground: false
   },
   cookieIcon: {
     position: "bottomRight"
@@ -73,5 +73,8 @@ silktideCookieBannerManager.updateCookieBannerConfig({
       creditLinkText: "Get this banner for free",
       creditLinkAccessibleLabel: "Get this banner for free"
     }
+  },
+  position: {
+    banner: "bottomRight"
   }
 });
