@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Concise TypeScript Book - The Concise TypeScript Book</title>
+    <title>Enums - The Concise TypeScript Book</title>
     <link rel="stylesheet" href="site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,13 +77,122 @@
 </ul>
 </nav>
         <main class="content">
-            <h1 id="the-concise-typescript-book">The Concise TypeScript Book</h1>
-<p>The Concise TypeScript Book provides a comprehensive and succinct overview of TypeScript's capabilities. It offers clear explanations covering all aspects found in the latest version of the language, from its powerful type system to advanced features. Whether you're a beginner or an experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.</p>
-<p>This book is completely Free and Open Source.</p>
-<p>I believe that high-quality technical education should be accessible to everyone, which is why I keep this book free and open.</p>
-<p>If the book helped you squash a bug, understand a tricky concept, or advance in your career, please consider supporting my work by paying what you want (suggested price: 15 USD) or sponsoring a coffee. Your support helps me keep the content up to date and expand it with new examples and deeper explanations.</p>
-<p><a href="https://www.buymeacoffee.com/simonepoggiali"><img alt="Buy Me a Coffee" src="https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&amp;logo=buy-me-a-coffee&amp;logoColor=black" /></a></p>
-<p><a href="https://www.paypal.com/donate/?business=QW82ZS956XLFY&amp;no_recurring=0&amp;currency_code=EUR"><img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-green.svg" /></a></p>
+            <h2 id="enums">Enums</h2>
+<p>In TypeScript, an <code>enum</code> is a set of named constant values.</p>
+<pre><code class="language-typescript">enum Color {
+    Red = '#ff0000',
+    Green = '#00ff00',
+    Blue = '#0000ff',
+}
+</code></pre>
+<p>Enums can be defined in different ways:</p>
+<h3 id="numeric-enums">Numeric enums</h3>
+<p>In TypeScript, a Numeric Enum is an Enum where each constant is assigned a numeric value, starting from 0 by default.</p>
+<pre><code class="language-typescript">enum Size {
+    Small, // value starts from 0
+    Medium,
+    Large,
+}
+</code></pre>
+<p>It is possible to specify custom values by explicitly assigning them:</p>
+<pre><code class="language-typescript">enum Size {
+    Small = 10,
+    Medium,
+    Large,
+}
+console.log(Size.Medium); // 11
+</code></pre>
+<h3 id="string-enums">String enums</h3>
+<p>In TypeScript, a String enum is an Enum where each constant is assigned a string value.</p>
+<pre><code class="language-typescript">enum Language {
+    English = 'EN',
+    Spanish = 'ES',
+}
+</code></pre>
+<p>Note: TypeScript allows the usage of heterogeneous Enums where string and numeric members can coexist.</p>
+<h3 id="constant-enums">Constant enums</h3>
+<p>A constant enum in TypeScript is a special type of Enum where all the values are known at compile time and are inlined wherever the enum is used, resulting in more efficient code.</p>
+<pre><code class="language-typescript">const enum Language {
+    English = 'EN',
+    Spanish = 'ES',
+}
+console.log(Language.English);
+</code></pre>
+<p>Will be compiled into:</p>
+<pre><code class="language-typescript">console.log('EN' /* Language.English */);
+</code></pre>
+<p>Notes:
+Const Enums have hardcoded values, erasing the Enum, which can be more efficient in self-contained libraries but is generally not desirable. Also, Const enums cannot have computed members.</p>
+<h3 id="reverse-mapping">Reverse mapping</h3>
+<p>In TypeScript, reverse mappings in Enums refer to the ability to retrieve the Enum member name from its value. By default, Enum members have forward mappings from name to value, but reverse mappings can be created by explicitly setting values for each member. Reverse mappings are useful when you need to look up an Enum member by its value, or when you need to iterate over all the Enum members. Note that only numeric enums members will generate reverse mappings, while String Enum members do not get a reverse mapping generated at all.</p>
+<p>The following enum:</p>
+<pre><code class="language-typescript">enum Grade {
+    A = 90,
+    B = 80,
+    C = 70,
+    F = 'fail',
+}
+</code></pre>
+<p>Compiles to:</p>
+<!-- skip -->
+
+<pre><code class="language-javascript">'use strict';
+var Grade;
+(function (Grade) {
+    Grade[(Grade['A'] = 90)] = 'A';
+    Grade[(Grade['B'] = 80)] = 'B';
+    Grade[(Grade['C'] = 70)] = 'C';
+    Grade['F'] = 'fail';
+})(Grade || (Grade = {}));
+</code></pre>
+<p>Therefore, mapping values to keys works for numeric enum members, but not for string enum members:</p>
+<!-- skip -->
+
+<pre><code class="language-typescript">enum Grade {
+    A = 90,
+    B = 80,
+    C = 70,
+    F = 'fail',
+}
+const myGrade = Grade.A;
+console.log(Grade[myGrade]); // A
+console.log(Grade[90]); // A
+
+const failGrade = Grade.F;
+console.log(failGrade); // fail
+console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+</code></pre>
+<h3 id="ambient-enums">Ambient enums</h3>
+<p>An ambient enum in TypeScript is a type of Enum that is defined in a declaration file (*.d.ts) without an associated implementation. It allows you to define a set of named constants that can be used in a type-safe way across different files without having to import the implementation details in each file.</p>
+<h3 id="computed-and-constant-members">Computed and constant members</h3>
+<p>In TypeScript, a computed member is a member of an Enum that has a value calculated at runtime, while a constant member is a member whose value is set at compile-time and cannot be changed during runtime. Computed members are allowed in regular Enums, while constant members are allowed in both regular and const enums.</p>
+<pre><code class="language-typescript">// Constant members
+enum Color {
+    Red = 1,
+    Green = 5,
+    Blue = Red + Green,
+}
+console.log(Color.Blue); // 6 generation at compilation time
+</code></pre>
+<pre><code class="language-typescript">// Computed members
+enum Color {
+    Red = 1,
+    Green = Math.pow(2, 2),
+    Blue = Math.floor(Math.random() * 3) + 1,
+}
+console.log(Color.Blue); // random number generated at run time
+</code></pre>
+<p>Enums are denoted by unions comprising their member types. The values of each member can be determined through constant or non-constant expressions, with members possessing constant values being assigned literal types. To illustrate, consider the declaration of type E and its subtypes E.A, E.B, and E.C. In this case, E represents the union E.A | E.B | E.C.</p>
+<pre><code class="language-typescript">const identity = (value: number) =&gt; value;
+
+enum E {
+    A = 2 * 5, // Numeric literal
+    B = 'bar', // String literal
+    C = identity(42), // Opaque computed
+}
+
+console.log(E.C); //42
+</code></pre>
         </main>
     </div>
 </body>

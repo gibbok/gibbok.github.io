@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Concise TypeScript Book - The Concise TypeScript Book</title>
+    <title>Any type - The Concise TypeScript Book</title>
     <link rel="stylesheet" href="site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,13 +77,18 @@
 </ul>
 </nav>
         <main class="content">
-            <h1 id="the-concise-typescript-book">The Concise TypeScript Book</h1>
-<p>The Concise TypeScript Book provides a comprehensive and succinct overview of TypeScript's capabilities. It offers clear explanations covering all aspects found in the latest version of the language, from its powerful type system to advanced features. Whether you're a beginner or an experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.</p>
-<p>This book is completely Free and Open Source.</p>
-<p>I believe that high-quality technical education should be accessible to everyone, which is why I keep this book free and open.</p>
-<p>If the book helped you squash a bug, understand a tricky concept, or advance in your career, please consider supporting my work by paying what you want (suggested price: 15 USD) or sponsoring a coffee. Your support helps me keep the content up to date and expand it with new examples and deeper explanations.</p>
-<p><a href="https://www.buymeacoffee.com/simonepoggiali"><img alt="Buy Me a Coffee" src="https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&amp;logo=buy-me-a-coffee&amp;logoColor=black" /></a></p>
-<p><a href="https://www.paypal.com/donate/?business=QW82ZS956XLFY&amp;no_recurring=0&amp;currency_code=EUR"><img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-green.svg" /></a></p>
+            <h2 id="any-type">Any type</h2>
+<p>The <code>any</code> type is a special type (universal supertype) that can be used to represent any type of value (primitives, objects, arrays, functions, errors, symbols). It is often used in situations where the type of a value is not known at compile time, or when working with values from external APIs or libraries that do not have TypeScript typings.</p>
+<p>By utilizing <code>any</code> type, you are indicating to the TypeScript compiler that values should be represented without any limitations. To maximize type safety in your code, consider the following:</p>
+<ul>
+<li>Limit the usage of <code>any</code> to specific cases where the type is truly unknown.</li>
+<li>Do not return <code>any</code> types from a function, as this weakens type safety in code that uses it.</li>
+<li>Instead of <code>any</code> use <code>@ts-ignore</code> if you need to silence the compiler.</li>
+</ul>
+<pre><code class="language-typescript">let value: any;
+value = true; // Valid
+value = 7; // Valid
+</code></pre>
         </main>
     </div>
 </body>

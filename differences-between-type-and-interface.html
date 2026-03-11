@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Concise TypeScript Book - The Concise TypeScript Book</title>
+    <title>Differences between Type and Interface - The Concise TypeScript Book</title>
     <link rel="stylesheet" href="site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,13 +77,77 @@
 </ul>
 </nav>
         <main class="content">
-            <h1 id="the-concise-typescript-book">The Concise TypeScript Book</h1>
-<p>The Concise TypeScript Book provides a comprehensive and succinct overview of TypeScript's capabilities. It offers clear explanations covering all aspects found in the latest version of the language, from its powerful type system to advanced features. Whether you're a beginner or an experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.</p>
-<p>This book is completely Free and Open Source.</p>
-<p>I believe that high-quality technical education should be accessible to everyone, which is why I keep this book free and open.</p>
-<p>If the book helped you squash a bug, understand a tricky concept, or advance in your career, please consider supporting my work by paying what you want (suggested price: 15 USD) or sponsoring a coffee. Your support helps me keep the content up to date and expand it with new examples and deeper explanations.</p>
-<p><a href="https://www.buymeacoffee.com/simonepoggiali"><img alt="Buy Me a Coffee" src="https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&amp;logo=buy-me-a-coffee&amp;logoColor=black" /></a></p>
-<p><a href="https://www.paypal.com/donate/?business=QW82ZS956XLFY&amp;no_recurring=0&amp;currency_code=EUR"><img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-green.svg" /></a></p>
+            <h2 id="differences-between-type-and-interface">Differences between Type and Interface</h2>
+<p>Declaration merging (augmentation):</p>
+<p>Interfaces support declaration merging, which means that you can define multiple interfaces with the same name, and TypeScript will merge them into a single interface with the combined properties and methods. On the other hand, types do not support declaration merging. This can be helpful when you want to add extra functionality or customize existing types without modifying the original definitions or patching missing or incorrect types.</p>
+<pre><code class="language-typescript">interface A {
+    x: string;
+}
+interface A {
+    y: string;
+}
+const j: A = {
+    x: 'xx',
+    y: 'yy',
+};
+</code></pre>
+<p>Extending other types/interfaces:</p>
+<p>Both types and interfaces can extend other types/interfaces, but the syntax is different. With interfaces, you use the <code>extends</code> keyword to inherit properties and methods from other interfaces. However, an interface cannot extend a complex type like a union type.</p>
+<pre><code class="language-typescript">interface A {
+    x: string;
+    y: number;
+}
+interface B extends A {
+    z: string;
+}
+const car: B = {
+    x: 'x',
+    y: 123,
+    z: 'z',
+};
+</code></pre>
+<p>For types, you use the &amp; operator to combine multiple types into a single type (intersection).</p>
+<pre><code class="language-typescript">interface A {
+    x: string;
+    y: number;
+}
+
+type B = A &amp; {
+    j: string;
+};
+
+const c: B = {
+    x: 'x',
+    y: 123,
+    j: 'j',
+};
+</code></pre>
+<p>Union and Intersection Types:</p>
+<p>Types are more flexible when it comes to defining Union and Intersection Types. With the <code>type</code> keyword, you can easily create union types using the <code>|</code> operator and intersection types using the <code>&amp;</code> operator. While interfaces can also represent union types indirectly, they don't have built-in support for intersection types.</p>
+<pre><code class="language-typescript">type Department = 'dep-x' | 'dep-y'; // Union
+
+type Person = {
+    name: string;
+    age: number;
+};
+
+type Employee = {
+    id: number;
+    department: Department;
+};
+
+type EmployeeInfo = Person &amp; Employee; // Intersection
+</code></pre>
+<p>Example with interfaces:</p>
+<pre><code class="language-typescript">interface A {
+    x: 'x';
+}
+interface B {
+    y: 'y';
+}
+
+type C = A | B; // Union of interfaces
+</code></pre>
         </main>
     </div>
 </body>

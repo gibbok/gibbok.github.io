@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Concise TypeScript Book - The Concise TypeScript Book</title>
+    <title>Narrowing - The Concise TypeScript Book</title>
     <link rel="stylesheet" href="site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,13 +77,83 @@
 </ul>
 </nav>
         <main class="content">
-            <h1 id="the-concise-typescript-book">The Concise TypeScript Book</h1>
-<p>The Concise TypeScript Book provides a comprehensive and succinct overview of TypeScript's capabilities. It offers clear explanations covering all aspects found in the latest version of the language, from its powerful type system to advanced features. Whether you're a beginner or an experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.</p>
-<p>This book is completely Free and Open Source.</p>
-<p>I believe that high-quality technical education should be accessible to everyone, which is why I keep this book free and open.</p>
-<p>If the book helped you squash a bug, understand a tricky concept, or advance in your career, please consider supporting my work by paying what you want (suggested price: 15 USD) or sponsoring a coffee. Your support helps me keep the content up to date and expand it with new examples and deeper explanations.</p>
-<p><a href="https://www.buymeacoffee.com/simonepoggiali"><img alt="Buy Me a Coffee" src="https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&amp;logo=buy-me-a-coffee&amp;logoColor=black" /></a></p>
-<p><a href="https://www.paypal.com/donate/?business=QW82ZS956XLFY&amp;no_recurring=0&amp;currency_code=EUR"><img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-green.svg" /></a></p>
+            <h2 id="narrowing">Narrowing</h2>
+<p>TypeScript narrowing is the process of refining the type of a variable within a conditional block. This is useful when working with union types, where a variable can have more than one type.</p>
+<p>TypeScript recognizes several ways to narrow the type:</p>
+<h3 id="typeof-type-guards">typeof type guards</h3>
+<p>The typeof type guard is one specific type guard in TypeScript that checks the type of a variable based on its built-in JavaScript type.</p>
+<pre><code class="language-typescript">const fn = (x: number | string) =&gt; {
+    if (typeof x === 'number') {
+        return x + 1; // x is number
+    }
+    return -1;
+};
+</code></pre>
+<h3 id="truthiness-narrowing">Truthiness narrowing</h3>
+<p>Truthiness narrowing in TypeScript works by checking whether a variable is truthy or falsy to narrow its type accordingly.</p>
+<pre><code class="language-typescript">const toUpperCase = (name: string | null) =&gt; {
+    if (name) {
+        return name.toUpperCase();
+    } else {
+        return null;
+    }
+};
+</code></pre>
+<h3 id="equality-narrowing">Equality narrowing</h3>
+<p>Equality narrowing in TypeScript works by checking whether a variable is equal to a specific value or not, to narrow its type accordingly.</p>
+<p>It is used in conjunction with <code>switch</code> statements and equality operators such as <code>===</code>, <code>!==</code>, <code>==</code>, and <code>!=</code> to narrow down types.</p>
+<pre><code class="language-typescript">const checkStatus = (status: 'success' | 'error') =&gt; {
+    switch (status) {
+        case 'success':
+            return true;
+        case 'error':
+            return null;
+    }
+};
+</code></pre>
+<h3 id="in-operator-narrowing">In Operator narrowing</h3>
+<p>The <code>in</code> Operator narrowing in TypeScript is a way to narrow the type of a variable based on whether a property exists within the variable's type.</p>
+<pre><code class="language-typescript">type Dog = {
+    name: string;
+    breed: string;
+};
+
+type Cat = {
+    name: string;
+    likesCream: boolean;
+};
+
+const getAnimalType = (pet: Dog | Cat) =&gt; {
+    if ('breed' in pet) {
+        return 'dog';
+    } else {
+        return 'cat';
+    }
+};
+</code></pre>
+<h3 id="instanceof-narrowing">instanceof narrowing</h3>
+<p>The <code>instanceof</code> operator narrowing in TypeScript is a way to narrow the type of a variable based on its constructor function, by checking if an object is an instance of a certain class or interface.</p>
+<pre><code class="language-typescript">class Square {
+    constructor(public width: number) {}
+}
+class Rectangle {
+    constructor(
+        public width: number,
+        public height: number
+    ) {}
+}
+function area(shape: Square | Rectangle) {
+    if (shape instanceof Square) {
+        return shape.width * shape.width;
+    } else {
+        return shape.width * shape.height;
+    }
+}
+const square = new Square(5);
+const rectangle = new Rectangle(5, 10);
+console.log(area(square)); // 25
+console.log(area(rectangle)); // 50
+</code></pre>
         </main>
     </div>
 </body>

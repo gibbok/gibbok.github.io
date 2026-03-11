@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Concise TypeScript Book - The Concise TypeScript Book</title>
+    <title>Primitive Types - The Concise TypeScript Book</title>
     <link rel="stylesheet" href="site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,13 +77,83 @@
 </ul>
 </nav>
         <main class="content">
-            <h1 id="the-concise-typescript-book">The Concise TypeScript Book</h1>
-<p>The Concise TypeScript Book provides a comprehensive and succinct overview of TypeScript's capabilities. It offers clear explanations covering all aspects found in the latest version of the language, from its powerful type system to advanced features. Whether you're a beginner or an experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.</p>
-<p>This book is completely Free and Open Source.</p>
-<p>I believe that high-quality technical education should be accessible to everyone, which is why I keep this book free and open.</p>
-<p>If the book helped you squash a bug, understand a tricky concept, or advance in your career, please consider supporting my work by paying what you want (suggested price: 15 USD) or sponsoring a coffee. Your support helps me keep the content up to date and expand it with new examples and deeper explanations.</p>
-<p><a href="https://www.buymeacoffee.com/simonepoggiali"><img alt="Buy Me a Coffee" src="https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&amp;logo=buy-me-a-coffee&amp;logoColor=black" /></a></p>
-<p><a href="https://www.paypal.com/donate/?business=QW82ZS956XLFY&amp;no_recurring=0&amp;currency_code=EUR"><img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-green.svg" /></a></p>
+            <h2 id="primitive-types">Primitive Types</h2>
+<p>TypeScript supports 7 primitive types. A primitive data type refers to a type that is not an object and does not have any methods associated with it. In TypeScript, all primitive types are immutable, meaning their values cannot be changed once they are assigned.</p>
+<h3 id="string">string</h3>
+<p>The <code>string</code> primitive type stores textual data, and the value is always double or single-quoted.</p>
+<pre><code class="language-typescript">const x: string = 'x';
+const y: string = 'y';
+</code></pre>
+<p>Strings can span multiple lines if surrounded by the backtick (`) character:</p>
+<pre><code class="language-typescript">let sentence: string = `xxx,
+   yyy`;
+</code></pre>
+<h3 id="boolean">boolean</h3>
+<p>The <code>boolean</code> data type in TypeScript stores a binary value, either <code>true</code> or <code>false</code>.</p>
+<pre><code class="language-typescript">const isReady: boolean = true;
+</code></pre>
+<h3 id="number">number</h3>
+<p>A <code>number</code> data type in TypeScript is represented with a 64-bit floating point value. A <code>number</code> type can represent integers and fractions.
+TypeScript also supports hexadecimal, binary, and octal, for instance:</p>
+<pre><code class="language-typescript">const decimal: number = 10;
+const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
+const binary: number = 0b1010; // Binary starts with 0b
+const octal: number = 0o633; // Octal starts with 0o
+</code></pre>
+<h3 id="bigint">bigInt</h3>
+<p>A <code>bigInt</code> represents numeric values that are very large (253 – 1) and cannot be represented with a <code>number</code>.</p>
+<p>A <code>bigInt</code> can be created by calling the built-in function <code>BigInt()</code> or by adding <code>n</code> to the end of any integer numeric literal:</p>
+<pre><code class="language-typescript">const x: bigint = BigInt(9007199254740991);
+const y: bigint = 9007199254740991n;
+</code></pre>
+<p>Notes:</p>
+<ul>
+<li><code>bigInt</code> values cannot be mixed with <code>number</code> and cannot be used with built-in <code>Math</code>, they must be coerced to the same type.</li>
+<li><code>bigInt</code> values are available only if target configuration is ES2020 or higher.</li>
+</ul>
+<h3 id="symbol">Symbol</h3>
+<p>Symbols are unique identifiers that can be used as property keys in objects to prevent naming conflicts.</p>
+<pre><code class="language-typescript">type Obj = {
+    [sym: symbol]: number;
+};
+
+const a = Symbol('a');
+const b = Symbol('b');
+let obj: Obj = {};
+obj[a] = 123;
+obj[b] = 456;
+
+console.log(obj[a]); // 123
+console.log(obj[b]); // 456
+</code></pre>
+<h3 id="null-and-undefined">null and undefined</h3>
+<p><code>null</code> and <code>undefined</code> types both represent no value or the absence of any value.</p>
+<p>The <code>undefined</code> type means the value is not assigned or initialized or indicates an unintentional absence of value.</p>
+<p>The <code>null</code> type means that we know that the field does not have a value, so value is unavailable, it indicates an intentional absence of value.</p>
+<h3 id="array">Array</h3>
+<p>An <code>array</code> is a data type that can store multiple values of the same type or not. It can be defined using the following syntax:</p>
+<pre><code class="language-typescript">const x: string[] = ['a', 'b'];
+const y: Array&lt;string&gt; = ['a', 'b'];
+const j: Array&lt;string | number&gt; = ['a', 1, 'b', 2]; // Union
+</code></pre>
+<p>TypeScript supports readonly arrays using the following syntax:</p>
+<!-- skip -->
+
+<pre><code class="language-typescript">const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const y: ReadonlyArray&lt;string&gt; = ['a', 'b'];
+const j: ReadonlyArray&lt;string | number&gt; = ['a', 1, 'b', 2];
+j.push('x'); // Invalid
+</code></pre>
+<p>TypeScript supports tuple and readonly tuple:</p>
+<pre><code class="language-typescript">const x: [string, number] = ['a', 1];
+const y: readonly [string, number] = ['a', 1];
+</code></pre>
+<h3 id="any">any</h3>
+<p>The <code>any</code> data type represents literally "any" value, it is the default value when TypeScript cannot infer the type or is not specified.</p>
+<p>When using <code>any</code> TypeScript compiler skips the type checking so there is no type safety when <code>any</code> is being used. Generally do not use <code>any</code> to silence the compiler when an error occurs, instead focus on fixing the error as with using <code>any</code>  it is possible to break contracts and we lose the benefits of TypeScript autocomplete.</p>
+<p>The <code>any</code> type could be useful during a gradual migration from JavaScript to TypeScript, as it can silence the compiler.</p>
+<p>For new projects use TypeScript configuration <code>noImplicitAny</code> which enables TypeScript to issue errors where <code>any</code> is used or inferred.</p>
+<p>The <code>any</code>type  is usually a source of errors which can mask real problems with your types. Avoid using it as much as possible.</p>
         </main>
     </div>
 </body>
