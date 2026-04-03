@@ -4,132 +4,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simone Poggiali — Staff Frontend Engineer</title>
+    <title>Simone Poggiali — Staff Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" id="silktide-consent-manager-css" href="cookie-banner/silktide-consent-manager.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: #0f1117;
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+
+        main {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 80px 32px;
+        }
+
+        header {
+            margin-bottom: 56px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0 0 12px;
+        }
+
+        .subtitle {
+            font-size: 1.15rem;
+            color: #94a3b8;
+            margin: 0 0 6px;
+        }
+
+        .subtitle:last-child {
+            margin: 0;
+        }
+
+        section {
+            margin-bottom: 56px;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #475569;
+            margin: 0 0 20px;
+        }
+
+        .book-card {
+            display: block;
+            background: #1e2330;
+            border: 1px solid #2d3748;
+            border-radius: 12px;
+            padding: 24px 28px;
+            text-decoration: none;
+            transition: border-color 0.2s;
+        }
+
+        .book-card:hover {
+            border-color: #4a5568;
+        }
+
+        .book-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .book-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: #1d4ed8;
+            color: #bfdbfe;
+            padding: 2px 10px;
+            border-radius: 999px;
+        }
+
+        .book-description {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill {
+            font-size: 0.8rem;
+            background: #1e2330;
+            border: 1px solid #2d3748;
+            color: #94a3b8;
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        footer {
+            border-top: 1px solid #1e2330;
+            padding-top: 32px;
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            font-size: 0.85rem;
+            color: #475569;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #94a3b8;
+        }
+    </style>
     <script src="cookie-banner/silktide-consent-manager.js"></script>
     <script src="cookie-banner/cookie-config.js"></script>
 </head>
 
-<body style="margin:0;padding:0;font-family:'Inter',sans-serif;background:#0f1117;color:#e2e8f0;min-height:100vh;">
-    <main style="max-width:760px;margin:0 auto;padding:80px 32px 80px;">
+<body>
+    <main>
 
-        <header style="margin-bottom:56px;">
-            <h1 style="font-size:2rem;font-weight:700;color:#ffffff;margin:0 0 12px;">Simone Poggiali</h1>
-            <p style="font-size:1.15rem;color:#94a3b8;margin:0 0 6px;">Staff Frontend Engineer skilled in UX/UI design.
-            </p>
-            <p style="font-size:1.15rem;color:#94a3b8;margin:0;">20+ years of professional experience.</p>
+        <header>
+            <h1>Simone Poggiali</h1>
+            <p class="subtitle">Staff Engineer skilled in UX/UI design.</p>
+            <p class="subtitle">20+ years of professional experience.</p>
         </header>
 
-        <section style="margin-bottom:56px;">
-            <h2
-                style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#475569;margin:0 0 20px;">
-                Featured Work</h2>
-            <a href="https://gibbok.github.io/typescript-book"
-                style="display:block;background:#1e2330;border:1px solid #2d3748;border-radius:12px;padding:24px 28px;text-decoration:none;transition:border-color 0.2s;">
-                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
-                    <span style="font-size:1.1rem;font-weight:600;color:#ffffff;">The Concise TypeScript Book</span>
-                    <span
-                        style="font-size:0.75rem;font-weight:500;background:#1d4ed8;color:#bfdbfe;padding:2px 10px;border-radius:999px;">Free
-                        &amp; Open Source</span>
+        <section>
+            <h2 class="section-title">Featured Work</h2>
+            <a href="https://gibbok.github.io/typescript-book" class="book-card">
+                <div class="book-card-header">
+                    <span class="book-title">The Concise TypeScript Book</span>
+                    <span class="badge">Free &amp; Open Source</span>
                 </div>
-                <p style="margin:0;font-size:0.95rem;color:#64748b;line-height:1.6;">A comprehensive and succinct
-                    overview of TypeScript's capabilities, covering all aspects of the latest version of the language.
-                </p>
+                <p class="book-description">A comprehensive and succinct overview of TypeScript's capabilities, covering
+                    all aspects of the latest version of the language.</p>
             </a>
         </section>
 
-        <section style="margin-bottom:56px;">
-            <h2
-                style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#475569;margin:0 0 20px;">
-                Skills</h2>
-            <div style="display:flex;flex-wrap:wrap;gap:8px;">
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">TypeScript</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">JavaScript</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">React.js</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">Next.js</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">Redux</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">Node.js</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">Functional
-                    Programming</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">fp-ts</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">Testing</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">Cypress</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">Playwright</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">React
-                    Testing Library</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">GraphQL</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">CSS3</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">TailwindCSS</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">styled-components</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">HTML5</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">MUI</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">Web
-                    Animations</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">ASP.NET</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">WPF</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">C#</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">SEO</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">Hugo</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">Jamstack</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">Go</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">Bash</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">Docker</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">CI</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">Adobe
-                    Creative Suite</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">Figma</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">SQL</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">Python</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">Machine
-                    Learning</span>
-                <span
-                    style="font-size:0.8rem;background:#1e2330;border:1px solid #2d3748;color:#94a3b8;padding:4px 12px;border-radius:6px;">AI</span>
+        <section>
+            <h2 class="section-title">Skills</h2>
+            <div class="skills">
+                <span class="skill">TypeScript</span>
+                <span class="skill">JavaScript</span>
+                <span class="skill">React.js</span>
+                <span class="skill">Next.js</span>
+                <span class="skill">Redux</span>
+                <span class="skill">Node.js</span>
+                <span class="skill">Functional Programming</span>
+                <span class="skill">fp-ts</span>
+                <span class="skill">Testing</span>
+                <span class="skill">Cypress</span>
+                <span class="skill">Playwright</span>
+                <span class="skill">React Testing Library</span>
+                <span class="skill">GraphQL</span>
+                <span class="skill">CSS3</span>
+                <span class="skill">TailwindCSS</span>
+                <span class="skill">styled-components</span>
+                <span class="skill">HTML5</span>
+                <span class="skill">MUI</span>
+                <span class="skill">Web Animations</span>
+                <span class="skill">ASP.NET</span>
+                <span class="skill">WPF</span>
+                <span class="skill">C#</span>
+                <span class="skill">SEO</span>
+                <span class="skill">Hugo</span>
+                <span class="skill">Jamstack</span>
+                <span class="skill">Go</span>
+                <span class="skill">Bash</span>
+                <span class="skill">Docker</span>
+                <span class="skill">CI</span>
+                <span class="skill">Adobe Creative Suite</span>
+                <span class="skill">Figma</span>
+                <span class="skill">SQL</span>
+                <span class="skill">Python</span>
+                <span class="skill">Machine Learning</span>
+                <span class="skill">AI</span>
             </div>
         </section>
 
-        <footer style="border-top:1px solid #1e2330;padding-top:32px;display:flex;gap:24px;flex-wrap:wrap;">
-            <a href="https://www.linkedin.com/in/simone-poggiali"
-                style="font-size:0.85rem;color:#475569;text-decoration:none;">LinkedIn</a>
-            <a href="https://github.com/gibbok" style="font-size:0.85rem;color:#475569;text-decoration:none;">GitHub</a>
-            <a href="https://x.com/gibbok_coding"
-                style="font-size:0.85rem;color:#475569;text-decoration:none;">X.com</a>
+        <footer>
+            <a href="https://www.linkedin.com/in/simone-poggiali">LinkedIn</a>
+            <a href="https://github.com/gibbok">GitHub</a>
+            <a href="https://x.com/gibbok_coding">X.com</a>
         </footer>
 
     </main>
